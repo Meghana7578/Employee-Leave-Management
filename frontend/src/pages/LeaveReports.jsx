@@ -1,6 +1,7 @@
 
 import { useEffect, useState } from "react";
 import axios from "axios";
+import API_URL from "../api";
 
 function LeaveReports() {
   const [leaves, setLeaves] = useState([]);
@@ -13,7 +14,7 @@ function LeaveReports() {
         const token = localStorage.getItem("token");
 
         const response = await axios.get(
-          "http://localhost:5000/api/leaveApplications",
+          `${API_URL}/api/leaveApplications`,
           {
             headers: {
               Authorization: `Bearer ${token}`

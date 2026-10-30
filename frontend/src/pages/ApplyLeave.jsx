@@ -1,6 +1,7 @@
 
 import { useState } from "react";
 import axios from "axios";
+import API_URL from "../api";
 
 function ApplyLeave() {
   const user = JSON.parse(localStorage.getItem("user") || "{}");
@@ -35,7 +36,7 @@ function ApplyLeave() {
       const token = localStorage.getItem("token");
 
       await axios.post(
-        "http://localhost:5000/api/leaveApplications",
+        `${API_URL}/api/leaveApplications`,
         form,
         {
           headers: { Authorization: `Bearer ${token}` }

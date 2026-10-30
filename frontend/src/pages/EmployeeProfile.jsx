@@ -1,6 +1,7 @@
 
 import { useEffect, useState } from "react";
 import axios from "axios";
+import API_URL from "../api";
 
 function EmployeeProfile() {
   const [profile, setProfile] = useState({
@@ -22,7 +23,7 @@ function EmployeeProfile() {
         const token = localStorage.getItem("token");
 
         const response = await axios.get(
-          "http://localhost:5000/api/employees/my-profile",
+          `${API_URL}/api/employees/my-profile`,
           {
             headers: {
               Authorization: `Bearer ${token}`
@@ -67,7 +68,7 @@ function EmployeeProfile() {
       const token = localStorage.getItem("token");
 
       const response = await axios.put(
-        "http://localhost:5000/api/employees/my-profile",
+        `${API_URL}/api/employees/my-profile`,
         {
           department: profile.department,
           designation: profile.designation,

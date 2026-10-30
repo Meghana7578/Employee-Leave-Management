@@ -1,6 +1,7 @@
 
 import { useEffect, useState } from "react";
 import axios from "axios";
+import API_URL from "../api";
 
 function ManageEmployees() {
   const [employees, setEmployees] = useState([]);
@@ -24,7 +25,7 @@ function ManageEmployees() {
   async function fetchEmployees() {
     try {
       const response = await axios.get(
-        "http://localhost:5000/api/employees",
+        `${API_URL}/api/employees`,
         { headers }
       );
 
@@ -68,14 +69,14 @@ function ManageEmployees() {
     try {
       if (editingId) {
         await axios.put(
-          `http://localhost:5000/api/employees/${editingId}`,
+          `${API_URL}/api/employees/${editingId}`,
           form,
           { headers }
         );
         setMessage("Employee updated successfully.");
       } else {
         await axios.post(
-          "http://localhost:5000/api/employees",
+          `${API_URL}/api/employees`,
           form,
           { headers }
         );
@@ -118,7 +119,7 @@ function ManageEmployees() {
 
     try {
       await axios.delete(
-        `http://localhost:5000/api/employees/${id}`,
+        `${API_URL}/api/employees/${id}`,
         { headers }
       );
 

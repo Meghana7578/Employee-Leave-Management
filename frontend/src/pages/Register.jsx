@@ -2,6 +2,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import API_URL from "../api";
 
 function Register() {
   const [form, setForm] = useState({
@@ -27,7 +28,7 @@ function Register() {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/register",
+        `${API_URL}/api/register`,
         form
       );
 

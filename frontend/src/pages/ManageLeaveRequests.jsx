@@ -1,6 +1,7 @@
 
 import { useEffect, useState } from "react";
 import axios from "axios";
+import API_URL from "../api";
 
 function ManageLeaveRequests() {
   const [leaves, setLeaves] = useState([]);
@@ -12,7 +13,7 @@ function ManageLeaveRequests() {
   async function fetchLeaves() {
     try {
       const response = await axios.get(
-        "http://localhost:5000/api/leaveApplications",
+        `${API_URL}/api/leaveApplications`,
         {
           headers: { Authorization: `Bearer ${token}` }
         }
@@ -38,7 +39,7 @@ function ManageLeaveRequests() {
 
     try {
       await axios.put(
-        `http://localhost:5000/api/leaveApplications/${id}`,
+        `${API_URL}/api/leaveApplications/${id}`,
         { leaveStatus: status },
         {
           headers: { Authorization: `Bearer ${token}` }
