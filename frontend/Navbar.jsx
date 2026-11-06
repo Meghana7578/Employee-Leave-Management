@@ -8,7 +8,7 @@ function Navbar() {
   function handleLogout() {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
-    navigate("/login");
+    navigate("/", { replace: true });
   }
 
   return (
